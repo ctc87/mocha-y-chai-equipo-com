@@ -1,0 +1,41 @@
+{
+  "name": "conversor-de-temperatura-simple-equipo-cob",
+  "version": "1.0.0",
+  "description": "Second exercice of subject Language of processors.",
+  "main": "./js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctc87/conversor-de-temperatura-simple-equipo-cob.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "javascript"
+  ],
+  "author": {
+    "name": "Carlos Troyano Carmona"
+  },
+  "contributors": [
+    {
+      "name": "Oscar Catari Gutierrez",
+      "email": "alu0100825893@ull.edu.es"
+    },
+    {
+      "name": "Rubén Labrador Páez",
+      "email": "alu0100309553@ull.edu.es"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctc87/conversor-de-temperatura-simple-equipo-cob/issues"
+  },
+  "homepage": "https://github.com/ctc87/conversor-de-temperatura-simple-equipo-cob#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  }
+}

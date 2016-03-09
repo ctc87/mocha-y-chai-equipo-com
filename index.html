@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if IE]><link rel="shortcut icon" href="./img/favicon.png"><![endif]-->
+        <link rel="icon" href="./img/favicon.png">
+        <link rel="stylesheet" href="./css/normalize.css" type="text/css" />
+        <link rel="stylesheet" href="./css/main.css" type="text/css" />
+        <link rel="stylesheet" href="./tests/mocha.css" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        
+  <script type="text/javascript" src="./js/xregexp.js"></script>
+        <script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/temperature.js"></script>
+        <script src="./tests/chai.js"></script>
+        <script src="./tests/mocha.js"></script>
+
+        <title>
+            Conversor Temperatura
+        </title>
+    </head>
+    <body onload="main()">
+        <header>
+            <div class="titleHeader">
+            <div class="resize">
+                Conversor de temperatura
+            </div>        
+            <div class="subTitleHeader resize3">
+                Celisus  -  Fahrenheit  -  Kelvin
+            </div> 
+            </div>
+            <div class="menuHEader">
+                <ul class="resize2">
+                    <li>
+                       <a href="#" id="e1" class="subrayado">Inicio</a>
+                    </li>    
+                    <li>
+                       <a id="e2"  href="#">Conversor</a>
+                    </li>     
+                    <li>
+                       <a id="e3"  href="#">Test</a>
+                    </li>    
+                </ul>
+            </div>  
+        </header>
+        <article class="contendeorImagenesEnlace resize3">   
+            <div class="imagenContenido">
+                <div class="contendeorImagen imagen1">
+                    <img src="./img/termometroManchaPintura.png"/>
+                    <div class="textoImagen">
+                        <h4>Conversor de temperatura</h4>
+                        <p>Conversor de temperatura de grados Fahrenheit, Celsius y Kelvin</p>
+                    </div>
+                </div>
+                <div class="contendeorImagen imagen2">
+                    <img src="./img/probetaManchaPintura.png"/>
+                    <div class="textoImagen">
+                        <h4>Test del conversor de temperatura</h4>
+                        <p>Test del conversor de temperatura</p>
+                    </div>
+                <div>
+            </div>        
+        </article>
+        <article class="conversorDeTemperatura resize3">
+            <div class="contenedorExplicacion">
+                <h4>Conversor de grados</h4>
+                <p>
+                    Puedes utilizar el conversor de grados para convertir una medida en otra. Por ejemplo, 
+                    puedes convertir grados Celsius en grados Fahrenheit o Fahrenheit en Kelvin.<br/>
+                    <br/>
+                    Para ello debes escribir en el cuadro de b&uacute;squeda : N&uacute;mero real o entero y unidades (en los formatos f o F, c o C y K o k).
+                    No se tendr&aacute;n en cuenta los espacios.<br/>
+                    Si la nomenclatura no es correcta el color de la letra ser&aacute; <span style="color:red">rojo</span>
+                    de lo contrario ser&aacute; negro. La conversion se produce d&iacute;namicamente al escribir correctamente un valor. 
+                    <!--(en los formatos fahrenheit o Fahrenheit, celsius, Celsius, Kelvin, kelvin o cualquier sufijo de estos ) --> 
+                </p>
+                <ul>
+                    <lh>
+                        Ejemplos:
+                    </lh>    
+                    <li>
+                        3c   o   3.4 k 
+                    </li>
+                    <li>
+                        -4 f o 0.09c
+                    </li>
+                    <li>
+                        -4 fah o 0.09cel
+                    </li>
+                    <li>
+                        -4 fahrenheit o 0.09 Celsius
+                    </li>
+                    <li>
+                        -4.5e-7 f o +45e+3k
+                    </li>
+                </ul>
+            </div> 
+            <div id="form">
+                <div class="contenedorConversor contenedorIzquierdo">
+                    <form action="">
+                        <input type="text" class="InputTemperatura t1" pattern="((?:)^\s*([-+]?\d+(?:.\d+)?(?:\s*e\s?[-+]?\d+)?)\s*?º?)\s*(?:)(?:)(?:)((?:)((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))\s*)(?:)(?:)(?:)(((?:)(?:\s*to)?\s*)(?:)(?:)(?:)((?:)((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\s*$(?:)(?:)"/>
+                    </form>
+                    <div class="selectEstilizado resize3">
+                        <select class="select">
+                            <option selected="1" text="Grado Celsius">Grado Celsius</option>
+                            <option text="Grado Fahrenheit">Grado Fahrenheit</option>
+                            <option text="Grado Kelvin">Grado Kelvin</option>
+                        </select>
+                    </div>    
+                </div>
+                <div class="simboloIgual resize">
+                    =
+                </div>
+                <div class="contenedorConversor contenedorDerecho">
+                    <form action="">
+                        <input type="text" class="InputTemperatura t2" pattern="((?:)^\s*([-+]?\d+(?:.\d+)?(?:\s*e\s?[-+]?\d+)?)\s*?º?)\s*(?:)(?:)(?:)((?:)((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))\s*)(?:)(?:)(?:)(((?:)(?:\s*to)?\s*)(?:)(?:)(?:)((?:)((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?)(?:)|(?:)(?:)(?:)(?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\s*$(?:)(?:)"/>
+                    </form>
+                    <div class="selectEstilizado resize3">
+                        <select class="select">
+                            <option text="Grado Celsius">Grado Celsius</option>
+                            <option selected="1" text="Grado Fahrenheit">Grado Fahrenheit</option>
+                            <option text="Grado Kelvin">Grado Kelvin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="conversorDeTemperaturaTest">
+        <div id="mocha"></div>
+        <script>mocha.setup('bdd');</script>
+        <script src="./tests/tests.js"></script>
+        <script>
+            mocha.run();
+        </script>
+        </article>
+    </section>
+    </body>
+</html>
