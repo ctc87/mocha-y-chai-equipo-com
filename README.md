@@ -2,10 +2,10 @@
 
 * [Página en Github Carlos](https://ctc87.github.io/)
 * [Página en Github Oscar](https://alu0100825893.github.io/)
-* [Página en Github Rubén](https://alu0100309553.github.io/)
+* [Página en Github Miguel](https://alu0100886870.github.io/)
 * [Página de la asignatura PL Carlos](http://ctc87.github.io/Practicas_PL/)
 * [Página de la asignatura PL Oscar](https://alu0100825893.github.io/)
-* [Página de la asignatura PL Rubén](https://alu0100309553.github.io/)
+* [Página de la asignatura PL Rubén](https://alu0100886870.github.io/)
 * [Repositorio](https://github.com/ULL-ESIT-GRADOII-PL/object-oriented-programming-in-js-equipo-cob)
 * [Aplicación-fork](http://ctc87.github.io/object-oriented-programming-in-js-equipo-cob/)
 * [Fork-Con los Issues](https://github.com/ctc87/object-oriented-programming-in-js-equipo-cob)

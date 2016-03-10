@@ -17,6 +17,10 @@ exports.Celsius = function Celsius(valor,tipo) {
 Celsius.prototype = Object.create(Temperatura.prototype)
 Celsius.prototype.constructor = Celsius;
 
+Temperatura.prototype.toCelsius = function() {}; 		//Prototipo de la funcion toCelsius();
+Temperatura.prototype.toFahrenheit = function() {}; 		//Prototipo de la funcion toFahrenheit();
+Temperatura.prototype.toKelvin = function() {}; 		//Prototipo de la funcion toKelvin();
+
 //Sobreescribiendo calculate de Temperatura
 Celsius.prototype.calculate = function(m,num) {
   this.valor = m[1];
@@ -36,6 +40,21 @@ Celsius.prototype.toFahrenheit = function(param) {
   console.log('me convierto')
 }
 
+//Definición de los métodos
+
+Celsius.prototype.toCelsius = function(){
+	return this;
+}
+
+Celsius.prototype.toFahrenheit = function(){
+	var resultado = (this.valor * 9/5)+32;
+	return new Fahrenheit(resultado, "F");
+}
+
+Celsius.prototype.toKelvin = function(){
+	var resultado = (this.valor + 273.15);
+	return new Kelvin(resultado, "K");
+}
 
 //Clase Fahrenheit con herencia de Temperatura -constructor
 exports.Fahrenheit = function Fahrenheit(valor,tipo) {
@@ -61,6 +80,20 @@ Fahrenheit.prototype.calculate = function(m,num) {
   return result;
 }
 
+Fahrenheit.prototype.toFahrenheit = function(){
+	return this;
+}
+
+Fahrenheit.prototype.toCelsius = function(){
+	var resultado = (this.valor - 32)*5/9;
+	return new Fahrenheit(resultado, "F");
+}
+
+Fahrenheit.prototype.toKelvin = function(){
+	var resultado = ((this.valor - 32)*5/9)+273.15;
+	return new Kelvin(resultado, "K");
+}
+
 //Clase Kelvin con herencia de Temperatura -constructor
 exports.Kelvin = function Kelvin(valor,tipo) {
   Temperatura.call(this,valor,tipo);
@@ -82,6 +115,20 @@ Kelvin.prototype.calculate = function(m,num) {
   result[2] = num ;
   result[2] = result[2]+" K";
   return result;
+}
+
+Kelvin.prototype.toKelvin = function(){
+	return this;
+}
+
+Kelvin.prototype.toCelsius = function(){
+	var resultado = (this.valor - 273.15);
+	return new Fahrenheit(resultado, "C");
+}
+
+Kelvin.prototype.toFahrenheit = function(){
+	var resultado = ((this.valor - 273.15)/(5/9))+32;
+	return new Kelvin(resultado, "F");
 }
 
 })(this)
