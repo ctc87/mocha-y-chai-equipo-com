@@ -53,7 +53,7 @@ Fahrenheit.prototype.toFahrenheit = function(){
 
 Fahrenheit.prototype.toCelsius = function(){
 	var resultado = (this.valor - 32)*5/9;
-	return new Fahrenheit(resultado);
+	return new Celsius(resultado);
 }
 
 Fahrenheit.prototype.toKelvin = function(){
@@ -62,7 +62,7 @@ Fahrenheit.prototype.toKelvin = function(){
 }
 
 //Clase Kelvin con herencia de Temperatura -constructor
-exports.Kelvin = function Kelvin(valor,tipo) {
+exports.Kelvin = function Kelvin(valor) {
   Temperatura.call(this,valor,"K");
 }
 
@@ -76,12 +76,12 @@ Kelvin.prototype.toKelvin = function(){
 
 Kelvin.prototype.toCelsius = function(){
 	var resultado = (this.valor - 273.15);
-	return new Fahrenheit(resultado);
+	return new Celsius(resultado);
 }
 
 Kelvin.prototype.toFahrenheit = function(){
 	var resultado = ((this.valor - 273.15)/(5/9))+32;
-	return new Kelvin(resultado);
+	return new Fahrenheit(resultado);
 }
 
 })(this)

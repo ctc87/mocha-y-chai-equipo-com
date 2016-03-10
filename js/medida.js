@@ -17,14 +17,13 @@ exports.Medida = function Medida(valor,tipo) {
                     (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\\s*$                          # kelvin ', 'x');
 
   if (tipo != undefined) {
-    console.log("hay tipo");
     this.tipo = tipo;
   }
 
 }
 
 Medida.prototype.tipoMedida = {  
-    f:'Fahrenheit', k:'Kelvin', c:'Celsius'
+     k:'Kelvin', f:'Fahrenheit',c:'Celsius'
   };
 
 Medida.prototype.match = function(evaluate) {
@@ -43,12 +42,11 @@ Medida.prototype.calculate = function(original, convertir) {
         tipo   = match.units.charAt(0).toLocaleLowerCase().trim();
     if(match.units2)
         var destino = match.units2.charAt(0).toLocaleLowerCase().trim();
-        console.log(tipoMedida[tipo]);
 
     try {
-      var source = eval( 'new ' + tipoMedida[tipo] + '(' + numero + ')') ;  // new Fahrenheit(32)
-      var target = eval( 'source.to' + tipoMedida[destino] + '()'); // "toCelsius"
-      return target.valor + "" + target.tipo; // "0 Celsius"
+      var source = eval( 'new ' + tipoMedida[tipo] + '(' + numero + ')') ;
+      var target = eval( 'source.to' + tipoMedida[destino] + '()');
+      return target.valor + "" + target.tipo;
     }
     catch(err) {
 
@@ -59,5 +57,6 @@ Medida.prototype.calculate = function(original, convertir) {
     return "Introduzca una temperatura valida: 330e-1 F to C";
 }
 
+exports.medida = new Medida;
 
 })(this)

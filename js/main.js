@@ -5,6 +5,31 @@
 var arrayResults = []
 
 
+
+function crearArray(valor) {
+    if(valor) {
+        var matched = valor.match(/(.*)to(.*)/);
+        var array = [];
+        var keyArray = Object.keys(medida.tipoMedida);
+        var valorDefinitivo = valor;
+        var j = 0;
+        if(matched)
+        {   
+            valorDefinitivo = matched[1];
+        }
+        
+        for (var i = keyArray.length - 1; i >= 0 ; i--) {
+            array[j] = (medida.calculate(valorDefinitivo, keyArray[i]))
+            j++;
+        }
+        if(matched)
+        {   
+            array[j] = matched[2].trim();
+        }
+    }
+        return array;
+}
+
 /** cambiando opacidad de las fotos textos  */
 
 function lastChildOpaciti(nodoLlamador, opacity, opacity2) {
@@ -59,7 +84,7 @@ function addEventInput(input) {
         var key = e.which || e.keyCode;
         if (key === 13) {   /** 13 es retorno de carro */
             if (input[0].validity.patternMismatch == false) { /** comprobando si coicide con el atributo pattern */
-                arrayResults = medida.calculate(this); /* global calculate */
+                arrayResults = crearArray(this.value);//medida.calculate(this); /* global calculate */
                 selectChangeInput(arrayResults, "left");
             }
         }
@@ -70,7 +95,7 @@ function addEventInput(input) {
             var value = this.value;
             value = value.toString();
             var tTemp = value.charAt(value.length - 1);
-            arrayResults = medida.calculate(this); /* global calculate */
+            arrayResults = crearArray(this.value);// medida.calculate(this); /* global calculate */
             inputChangeSelect(tTemp, "left",  arrayResults[3]);
             selectChangeInput(arrayResults, "left");
         }
@@ -81,7 +106,7 @@ function addEventInput(input) {
             var value = this.value;
             value = value.toString();
             var tTemp = value.charAt(value.length - 1);
-            arrayResults = medida.calculate(this); /* global calculate */
+            arrayResults = crearArray(this.value); //medida.calculate(this); /* global calculate */
             inputChangeSelect(tTemp, "right", arrayResults[3]) ;
             selectChangeInput(arrayResults, "right");
         }
@@ -91,7 +116,7 @@ function addEventInput(input) {
         var key = e.which || e.keyCode;
         if (key === 13) {   /** 13 es retorno de carro */
             if (input[1].validity.patternMismatch == false) { /** comprobando si coicide con el atributo pattern */
-                arrayResults = medida.calculate(this);
+                arrayResults = crearArray(this.value);// medida.calculate(this);
                 selectChangeInput(arrayResults, "right");
             }
         }
@@ -124,6 +149,7 @@ function inputChangeSelect(char, direction, cond) {
     } else {
     select = document.getElementsByClassName("select")[1];
     }
+    
     switch(char.toLowerCase()) {
         case 'c' :
             select.value = "Grado Celsius";
@@ -166,6 +192,7 @@ function selectChangeInput(arr, direction) {
 /** función principal de js */
 
 exports.main = function main() {
+    //crearArray();
     var opaco = false;
     var x = document.getElementsByClassName("contendeorImagen");
     for(var i = 0; i < x.length; i++) {
