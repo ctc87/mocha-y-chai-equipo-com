@@ -17,6 +17,10 @@ exports.Celsius = function Celsius(valor,tipo) {
 Celsius.prototype = Object.create(Temperatura.prototype)
 Celsius.prototype.constructor = Celsius;
 
+Temperatura.prototype.toCelsius = function() {}; 		//Prototipo de la funcion toCelsius();
+Temperatura.prototype.toFahrenheit = function() {}; 		//Prototipo de la funcion toFahrenheit();
+Temperatura.prototype.toKelvin = function() {}; 		//Prototipo de la funcion toKelvin();
+
 //Sobreescribiendo calculate de Temperatura
 Celsius.prototype.calculate = function(m,num) {
   this.valor = m[1];
@@ -30,6 +34,22 @@ Celsius.prototype.calculate = function(m,num) {
   result[2] = (num + 273.15) ;
   result[2] = result[2]+" K";
   return result;
+}
+
+//Definición de los métodos
+
+Celsius.prototype.toCelsius = function(){
+	return this;
+}
+
+Celsius.prototype.toFahrenheit = function(){
+	var resultado = (this.valor * 9/5)+32;
+	return new Fahrenheit(resultado);
+}
+
+Celsius.prototype.toKelvin = function(){
+	var resultado = (this.valor + 273.15);
+	return new Kelvin(resultado);
 }
 
 //Clase Fahrenheit con herencia de Temperatura -constructor
