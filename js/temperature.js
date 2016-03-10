@@ -2,13 +2,20 @@
 (function(exports) {
 
 //Clase Medida -constructor
-function Medida() {
-  this.valor = 0;
+function Medida(valor,tipo) {
+  this.valor = valor;
+  this.tipo = "";
+
+  if (tipo != undefined) {
+    console.log("hay tipo");
+    this.tipo = tipo;
+  }
+
 }
 
 //Clase Temperatura con herencia de Medida -constructor
-function Temperatura() {
-    Medida.call(this);
+function Temperatura(valor,tipo) {
+    Medida.call(this,valor,tipo);
     this.ca = XRegExp('(?<value> ^\\s*([-+]?\\d+(?:\\.\\d+)?(?:\\s*e\\s?[-+]?\\d+)?)\\s*?º?)\\s* # valor   \n\
   (?<units>    ((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?) |      # celsisu \n\
   (?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?) |  # fahrenheit \n\
@@ -16,7 +23,7 @@ function Temperatura() {
   ((?<to> (?:\\s*to)?\\s*)                                             # to \n\
   (?<units2>    ((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?) |      # celsisu \n\
   (?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?) |  # fahrenheit \n\
-  (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\\s*$                       # kelvin ', 'x'); 
+  (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\\s*$                       # kelvin ', 'x');
 }
 
 Temperatura.prototype = Object.create(Medida.prototype);
@@ -62,15 +69,15 @@ Temperatura.prototype.calculate = function(original) {
       result[3] = match.units2;
     }
     return result;
-    
+
   } else {
     return undefined;
   }
 }
 
 //Clase Celsius con herencia de Temperatura -constructor
-function Celsius() {
-  Temperatura.call(this);
+function Celsius(valor,tipo) {
+  Temperatura.call(this,valor,tipo);
 
 }
 
@@ -93,8 +100,8 @@ Celsius.prototype.calculate = function(m,num) {
 }
 
 //Clase Fahrenheit con herencia de Temperatura -constructor
-function Fahrenheit() {
-  Temperatura.call(this);
+function Fahrenheit(valor,tipo) {
+  Temperatura.call(this,valor,tipo);
 
 }
 
@@ -118,8 +125,8 @@ Fahrenheit.prototype.calculate = function(m,num) {
 }
 
 //Clase Kelvin con herencia de Temperatura -constructor
-function Kelvin() {
-  Temperatura.call(this);
+function Kelvin(valor,tipo) {
+  Temperatura.call(this,valor,tipo);
 
 }
 
@@ -142,5 +149,5 @@ Kelvin.prototype.calculate = function(m,num) {
 }
 
 //Variable a usar en el main para comerzar la conversion
-exports.temperatura = new Temperatura();
+exports.temperatura = new Temperatura("0c");
 })(this)
