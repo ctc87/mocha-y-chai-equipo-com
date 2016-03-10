@@ -59,7 +59,7 @@ function addEventInput(input) {
         var key = e.which || e.keyCode;
         if (key === 13) {   /** 13 es retorno de carro */
             if (input[0].validity.patternMismatch == false) { /** comprobando si coicide con el atributo pattern */
-                arrayResults = temperatura.calculate(this); /* global calculate */
+                arrayResults = medida.calculate(this); /* global calculate */
                 selectChangeInput(arrayResults, "left");
             }
         }
@@ -70,7 +70,7 @@ function addEventInput(input) {
             var value = this.value;
             value = value.toString();
             var tTemp = value.charAt(value.length - 1);
-            arrayResults = temperatura.calculate(this); /* global calculate */
+            arrayResults = medida.calculate(this); /* global calculate */
             inputChangeSelect(tTemp, "left",  arrayResults[3]);
             selectChangeInput(arrayResults, "left");
         }
@@ -81,7 +81,7 @@ function addEventInput(input) {
             var value = this.value;
             value = value.toString();
             var tTemp = value.charAt(value.length - 1);
-            arrayResults = temperatura.calculate(this); /* global calculate */
+            arrayResults = medida.calculate(this); /* global calculate */
             inputChangeSelect(tTemp, "right", arrayResults[3]) ;
             selectChangeInput(arrayResults, "right");
         }
@@ -91,7 +91,7 @@ function addEventInput(input) {
         var key = e.which || e.keyCode;
         if (key === 13) {   /** 13 es retorno de carro */
             if (input[1].validity.patternMismatch == false) { /** comprobando si coicide con el atributo pattern */
-                arrayResults = temperatura.calculate(this); 
+                arrayResults = medida.calculate(this);
                 selectChangeInput(arrayResults, "right");
             }
         }

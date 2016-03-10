@@ -5,6 +5,14 @@
 function Medida(valor,tipo) {
   this.valor = valor;
   this.tipo = "";
+  this.ca = XRegExp('(?<value> ^\\s*([-+]?\\d+(?:\\.\\d+)?(?:\\s*e\\s?[-+]?\\d+)?)\\s*?º?)\\s* # valor   \n\
+                    (?<units>    ((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?) |      # celsisu \n\
+                    (?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?) |  # fahrenheit \n\
+                    (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))\\s*)                      # kelvin  \n\
+                    ((?<to> (?:\\s*to)?\\s*)                                             # to \n\
+                    (?<units2>    ((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?) |      # celsisu \n\
+                    (?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?) |  # fahrenheit \n\
+                    (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\\s*$                       # kelvin ', 'x');
 
   if (tipo != undefined) {
     console.log("hay tipo");
@@ -13,24 +21,8 @@ function Medida(valor,tipo) {
 
 }
 
-//Clase Temperatura con herencia de Medida -constructor
-function Temperatura(valor,tipo) {
-    Medida.call(this,valor,tipo);
-    this.ca = XRegExp('(?<value> ^\\s*([-+]?\\d+(?:\\.\\d+)?(?:\\s*e\\s?[-+]?\\d+)?)\\s*?º?)\\s* # valor   \n\
-  (?<units>    ((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?) |      # celsisu \n\
-  (?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?) |  # fahrenheit \n\
-  (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))\\s*)                      # kelvin  \n\
-  ((?<to> (?:\\s*to)?\\s*)                                             # to \n\
-  (?<units2>    ((?:([Cc])(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?) |      # celsisu \n\
-  (?:([Ff])(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?) |  # fahrenheit \n\
-  (?:([Kk])(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?))))?\\s*$                       # kelvin ', 'x');
-}
-
-Temperatura.prototype = Object.create(Medida.prototype);
-Temperatura.prototype.constructor = Temperatura;
-
 //Calculo de la conversion de temperaturas
-Temperatura.prototype.calculate = function(original) {
+Medida.prototype.calculate = function(original) {
   var celsius = new Celsius();
   var fahrenheit = new Fahrenheit();
   var kelvin = new Kelvin();
@@ -74,6 +66,15 @@ Temperatura.prototype.calculate = function(original) {
     return undefined;
   }
 }
+
+//Clase Temperatura con herencia de Medida -constructor
+function Temperatura(valor,tipo) {
+    Medida.call(this,valor,tipo);
+
+}
+
+Temperatura.prototype = Object.create(Medida.prototype);
+Temperatura.prototype.constructor = Temperatura;
 
 //Clase Celsius con herencia de Temperatura -constructor
 function Celsius(valor,tipo) {
@@ -149,5 +150,5 @@ Kelvin.prototype.calculate = function(m,num) {
 }
 
 //Variable a usar en el main para comerzar la conversion
-exports.temperatura = new Temperatura("0c");
+exports.medida = new Medida("0c");
 })(this)
