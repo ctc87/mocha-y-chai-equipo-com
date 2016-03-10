@@ -9,10 +9,13 @@
         <link rel="stylesheet" href="./css/main.css" type="text/css" />
         <link rel="stylesheet" href="./tests/mocha.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        
-  <script type="text/javascript" src="./js/xregexp.js"></script>
+
+        <script type="text/javascript" src="./js/xregexp.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
-	<script type="text/javascript" src="./js/temperature.js"></script>
+        <script type="text/javascript" src="./js/medida.js"></script>
+      	<script type="text/javascript" src="./js/temperature.js"></script>
+
+
         <script src="./tests/chai.js"></script>
         <script src="./tests/mocha.js"></script>
 
@@ -25,26 +28,26 @@
             <div class="titleHeader">
             <div class="resize">
                 Conversor de temperatura
-            </div>        
+            </div>
             <div class="subTitleHeader resize3">
                 Celisus  -  Fahrenheit  -  Kelvin
-            </div> 
+            </div>
             </div>
             <div class="menuHEader">
                 <ul class="resize2">
                     <li>
                        <a href="#" id="e1" class="subrayado">Inicio</a>
-                    </li>    
+                    </li>
                     <li>
                        <a id="e2"  href="#">Conversor</a>
-                    </li>     
+                    </li>
                     <li>
                        <a id="e3"  href="#">Test</a>
-                    </li>    
+                    </li>
                 </ul>
-            </div>  
+            </div>
         </header>
-        <article class="contendeorImagenesEnlace resize3">   
+        <article class="contendeorImagenesEnlace resize3">
             <div class="imagenContenido">
                 <div class="contendeorImagen imagen1">
                     <img src="./img/termometroManchaPintura.png"/>
@@ -60,27 +63,27 @@
                         <p>Test del conversor de temperatura</p>
                     </div>
                 <div>
-            </div>        
+            </div>
         </article>
         <article class="conversorDeTemperatura resize3">
             <div class="contenedorExplicacion">
                 <h4>Conversor de grados</h4>
                 <p>
-                    Puedes utilizar el conversor de grados para convertir una medida en otra. Por ejemplo, 
+                    Puedes utilizar el conversor de grados para convertir una medida en otra. Por ejemplo,
                     puedes convertir grados Celsius en grados Fahrenheit o Fahrenheit en Kelvin.<br/>
                     <br/>
                     Para ello debes escribir en el cuadro de b&uacute;squeda : N&uacute;mero real o entero y unidades (en los formatos f o F, c o C y K o k).
                     No se tendr&aacute;n en cuenta los espacios.<br/>
                     Si la nomenclatura no es correcta el color de la letra ser&aacute; <span style="color:red">rojo</span>
-                    de lo contrario ser&aacute; negro. La conversion se produce d&iacute;namicamente al escribir correctamente un valor. 
-                    <!--(en los formatos fahrenheit o Fahrenheit, celsius, Celsius, Kelvin, kelvin o cualquier sufijo de estos ) --> 
+                    de lo contrario ser&aacute; negro. La conversion se produce d&iacute;namicamente al escribir correctamente un valor.
+                    <!--(en los formatos fahrenheit o Fahrenheit, celsius, Celsius, Kelvin, kelvin o cualquier sufijo de estos ) -->
                 </p>
                 <ul>
                     <lh>
                         Ejemplos:
-                    </lh>    
+                    </lh>
                     <li>
-                        3c   o   3.4 k 
+                        3c   o   3.4 k
                     </li>
                     <li>
                         -4 f o 0.09c
@@ -95,7 +98,7 @@
                         -4.5e-7 f o +45e+3k
                     </li>
                 </ul>
-            </div> 
+            </div>
             <div id="form">
                 <div class="contenedorConversor contenedorIzquierdo">
                     <form action="">
@@ -107,7 +110,7 @@
                             <option text="Grado Fahrenheit">Grado Fahrenheit</option>
                             <option text="Grado Kelvin">Grado Kelvin</option>
                         </select>
-                    </div>    
+                    </div>
                 </div>
                 <div class="simboloIgual resize">
                     =
