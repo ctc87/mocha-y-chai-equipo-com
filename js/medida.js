@@ -2,7 +2,7 @@
 (function(exports) {
 
 //Clase Medida -constructor
-function Medida(valor,tipo) {
+exports.Medida = function Medida(valor,tipo) {
   this.valor = valor;
   this.tipo = "";
   this.ca = XRegExp('(?<value> ^\\s*([-+]?\\d+(?:\\.\\d+)?(?:\\s*e\\s?[-+]?\\d+)?)\\s*?º?)\\s* # valor   \n\
@@ -67,8 +67,7 @@ Medida.prototype.calculate = function(original) {
   }
 }
 
-exports.Medida = Medida;
-//Variable a usar en el main para comerzar la conversion
+//Variable a usar en el main para comenzar la conversion
 exports.medida = new Medida("0c");
 
 })(this)

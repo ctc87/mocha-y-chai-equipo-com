@@ -2,7 +2,7 @@
 (function(exports) {
 
 //Clase Temperatura con herencia de Medida -constructor
-function Temperatura(valor,tipo) {
+exports.Temperatura = function Temperatura(valor,tipo) {
     Medida.call(this,valor,tipo);
 }
 
@@ -10,7 +10,7 @@ Temperatura.prototype = Object.create(Medida.prototype);
 Temperatura.prototype.constructor = Temperatura;
 
 //Clase Celsius con herencia de Temperatura -constructor
-function Celsius(valor,tipo) {
+exports.Celsius = function Celsius(valor,tipo) {
   Temperatura.call(this,valor,tipo);
 }
 
@@ -33,7 +33,7 @@ Celsius.prototype.calculate = function(m,num) {
 }
 
 //Clase Fahrenheit con herencia de Temperatura -constructor
-function Fahrenheit(valor,tipo) {
+exports.Fahrenheit = function Fahrenheit(valor,tipo) {
   Temperatura.call(this,valor,tipo);
 }
 
@@ -57,7 +57,7 @@ Fahrenheit.prototype.calculate = function(m,num) {
 }
 
 //Clase Kelvin con herencia de Temperatura -constructor
-function Kelvin(valor,tipo) {
+exports.Kelvin = function Kelvin(valor,tipo) {
   Temperatura.call(this,valor,tipo);
 }
 
@@ -78,10 +78,5 @@ Kelvin.prototype.calculate = function(m,num) {
   result[2] = result[2]+" K";
   return result;
 }
-
-exports.Temperatura = Temperatura;
-exports.Celsius = Celsius;
-exports.Fahrenheit = Fahrenheit;
-exports.Kelvin = Kelvin;
 
 })(this)
