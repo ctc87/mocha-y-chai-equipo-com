@@ -30,7 +30,12 @@ Celsius.prototype.calculate = function(m,num) {
   result[2] = (num + 273.15) ;
   result[2] = result[2]+" K";
   return result;
+
 }
+Celsius.prototype.toFahrenheit = function(param) {
+  console.log('me convierto')
+}
+
 
 //Clase Fahrenheit con herencia de Temperatura -constructor
 exports.Fahrenheit = function Fahrenheit(valor,tipo) {
