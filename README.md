@@ -5,28 +5,19 @@
 * [Página en Github Miguel](https://alu0100886870.github.io/)
 * [Página de la asignatura PL Carlos](http://ctc87.github.io/Practicas_PL/)
 * [Página de la asignatura PL Oscar](https://alu0100825893.github.io/)
-* [Página de la asignatura PL Rubén](https://alu0100886870.github.io/)
+* [Página de la asignatura PL Miguel](https://alu0100886870.github.io/pl.html)
 * [Repositorio](https://github.com/ULL-ESIT-GRADOII-PL/object-oriented-programming-in-js-equipo-cob)
 * [Aplicación-fork](http://ctc87.github.io/object-oriented-programming-in-js-equipo-cob/)
 * [Fork-Con los Issues](https://github.com/ctc87/object-oriented-programming-in-js-equipo-cob)
 
-#Segunda práctica pl. 
+# Tercera práctica PL.
 
-####Conversor de grados
-Puedes utilizar el conversor de grados para convertir una medida en otra. Por ejemplo, 
-puedes convertir grados Celsius en grados Fahrenheit o Fahrenheit en Kelvin.
-            
-Para ello debes escribir en el cuadro de búsqueda : Número 
-real o entero y unidades (en los formatos f o Fah, c o Ce y Kel o kel, etc.. ).
-No se tendrán en cuenta los espacios.
-Si la nomenclatura no es correcta el color de la letra será rojo
-de lo contrario será negro. La conversion se produce dínamicamente al escribir correctamente un valor. 
-                        
-Ejemplos:
-* 3c   o   3.4 k 
-* -4 f o 0.09c
-* -4.5e-7 f o +45e+3k
-* -4 fah o 0.09cel
-* -4 fahrenheit o 0.09 Celsius
-* Admite conversiones con los anteriores formatos y to unidad o prefijo  
-* -4 fahrenheit to cel o 0.09 Celsius to k
+#### Eliminación del Switch Smell
+En esta práctica se procede a eliminar las debilidades de la anterior (Práctica 2 - OOP en JS), de manera que consigamos los siguiente:
+* Eliminar los Switch Smell.
+* Eliminar las debilidades señaladas en la siguiente [lista](https://casianorodriguezleon.gitbooks.io/pl1516/content/noswitchsmell.html#debilidades).
+* (Requisito anterior) El constructor de Medida pueda llamarse con un solo argumento.
+
+##### Otros enlaces
+* Página de la asignatura (ULL): [Procesadores de Lenguaje](https://campusvirtual.ull.es/1516/course/view.php?id=178)
+* Página de la práctica (ULL): [Eliminación del Switch Smell](https://campusvirtual.ull.es/1516/mod/workshop/view.php?id=180218)
