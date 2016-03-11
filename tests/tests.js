@@ -1,48 +1,40 @@
 var expect = chai.expect
 describe('Pruebas del conversor de temperatura', function(){
 
-  it("Array de tamaño 3", function(){
-    this.value = "32C"
-    expect(medida.calculate(this)).to.have.lengthOf(3);
+  it("La función calculate deberia retornar un string", function(){
+    expect(medida.calculate("32","c")).to.be.a("string");
   });
 
-  it("32C deberia ser 32C, 89.6F, 305.15K", function(){
-    this.value = "32C"
-    expect(medida.calculate(this)).to.deep.equal([ '32 C', '89.6 F', '305.15 K' ]);
+  it("32C k deberia ser 305.15K", function(){
+    expect(medida.calculate("32c","k")).to.deep.equal('305.15K');
   });
 
-  it("0C deberia ser 0C, 32F, 273.15K",function(){
-    this.value = "0C"
-    expect(medida.calculate(this)).to.deep.equal([ '0 C', '32 F', '273.15 K' ]);
+  it("0C to fah deberia ser 32F",function(){
+    expect(medida.calculate("0C to fah")).to.deep.equal('32F');
   });
 
-  it("273.15K deberia ser 0C, 32F, 273.15K",function(){
-    this.value = "273.15K"
-    expect(medida.calculate(this)).to.deep.equal([ '0 C', '32 F', '273.15 K' ]);
+  it("273.15Kelvin c deberia ser 0C",function(){
+
+    expect(medida.calculate("273.15Kelvin c")).to.deep.equal('0C');
   });
 
-  it("45F deberia ser 0C, 45F, 273.15K",function(){
-    this.value = "45F"
-    expect(medida.calculate(this)).to.deep.equal([ "7.222222222222222 C", '45 F', "280.3722222222222 K" ]);
+  it("45Fa Fahrenheit deberia ser 45F",function(){
+    expect(medida.calculate("45Fa Fahrenheit")).to.deep.equal('45F');
   });
 
   it("45w no se acepta",function(){
-    this.value = "45W"
-    expect(medida.calculate(this)).to.deep.equal(undefined);
+    expect(medida.calculate("45W")).to.deep.equal("Introduzca una temperatura valida: 330e-1 F to C");
   });
 
   it("tem43c no se acepta",function(){
-    this.value = "tem43c"
-    expect(medida.calculate(this)).to.deep.equal(undefined);
+    expect(medida.calculate("tem43c")).to.deep.equal("Introduzca una temperatura valida: 330e-1 F to C");
   });
 
-  it("Espacios en blanco no importan.0     C deberia ser 0C, 32F, 273.15K",function(){
-    this.value = "0    C"
-    expect(medida.calculate(this)).to.deep.equal([ '0 C', '32 F', '273.15 K' ]);
+  it("Espacios en blanco no importan.0     C to kel 273.15K",function() {
+    expect(medida.calculate("0    C to kel")).to.deep.equal('273.15K');
   });
 
-  it("Se acepta notacion cientifica. -1.2e-3 f",function(){
-    this.value = "-1.2e-3 f"
-    expect(medida.calculate(this)).to.deep.equal([ "-17.778444444444442 C", "-0.0012 F", "255.37155555555555 K" ]);
+  it("Se acepta notacion cientifica. -1.2e-3 f Cels",function() {
+    expect(medida.calculate("-1.2e-3 f Cels")).to.deep.equal("-17.778444444444442C");
   });
 });
