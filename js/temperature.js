@@ -8,6 +8,9 @@ exports.Temperatura = function Temperatura(valor,tipo) {
 
 Temperatura.prototype = Object.create(Medida.prototype);
 Temperatura.prototype.constructor = Temperatura;
+Temperatura.prototype.toCelsius = function() {}; 		//Prototipo de la funcion toCelsius();
+Temperatura.prototype.toFahrenheit = function() {}; 	//Prototipo de la funcion toFahrenheit();
+Temperatura.prototype.toKelvin = function() {}; 		//Prototipo de la funcion toKelvin();
 
 //Clase Celsius con herencia de Temperatura -constructor
 exports.Celsius = function Celsius(valor) {
@@ -17,11 +20,7 @@ exports.Celsius = function Celsius(valor) {
 Celsius.prototype = Object.create(Temperatura.prototype)
 Celsius.prototype.constructor = Celsius;
 
-Temperatura.prototype.toCelsius = function() {}; 		//Prototipo de la funcion toCelsius();
-Temperatura.prototype.toFahrenheit = function() {}; 		//Prototipo de la funcion toFahrenheit();
-Temperatura.prototype.toKelvin = function() {}; 		//Prototipo de la funcion toKelvin();
-
-
+//Funciones de conversión de CELSIUS a otras unidades de temperaturas.
 
 Celsius.prototype.toCelsius = function(){
 	return this;
@@ -45,7 +44,7 @@ exports.Fahrenheit = function Fahrenheit(valor) {
 Fahrenheit.prototype = Object.create(Temperatura.prototype)
 Fahrenheit.prototype.constructor = Fahrenheit;
 
-
+//Funciones de conversión de FAHRENHEIT a otras unidades de temperaturas.
 
 Fahrenheit.prototype.toFahrenheit = function(){
 	return this;
@@ -69,6 +68,7 @@ exports.Kelvin = function Kelvin(valor) {
 Kelvin.prototype = Object.create(Temperatura.prototype)
 Kelvin.prototype.constructor = Kelvin;
 
+//Funciones de conversión de KELVIN a otras unidades de temperaturas.
 
 Kelvin.prototype.toKelvin = function(){
 	return this;
