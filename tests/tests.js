@@ -61,8 +61,78 @@ describe('Medida', function() {
     it("Se acepta notacion cientifica. -1.2e-3 f Cels",function() {
       expect(medida.calculate("-1.2e-3 f Cels")).to.deep.equal("-17.778444444444442C");
     });
+  });
+});
 
-    
+describe('Temperatura', function() {
+  describe('constructor', function() {
+    it ('debería aceptar dos parámetros (valor, tipo)',function() {
+      var tem = new Temperatura(24,'k');
+      expect(tem.valor+tem.tipo).to.equal('24k');
+    });
+  });
+});
+
+describe('Celsius', function() {
+  describe('constructor', function() {
+    it ('debería aceptar un valor como parámetro,el tipo es celsius siempre',function() {
+      var cel = new Celsius(24);
+      expect(cel.valor+cel.tipo).to.equal('24C');
+    });
   });
 
+  describe('#toCelsius', function() {
+    it ('debería devolver un objeto Celsius, en este caso a si mismo',function() {
+      var cel = new Celsius(24);
+      expect(cel.toCelsius()).to.equal(cel);
+    });
+  });
+
+  describe('#toFahrenheit', function() {
+    it ('debería devolver un objeto Fahrenheit convertido',function() {
+      var cel = new Celsius(24);
+      var fah = new Fahrenheit(75.2);
+      expect(cel.toFahrenheit()).to.deep.equal(fah);
+    });
+  });
+
+  describe('#toKelvin', function() {
+    it ('debería devolver un objeto Kelvin convertido',function() {
+      var cel = new Celsius(24);
+      var kel = new Kelvin(297.15);
+      expect(cel.toKelvin()).to.deep.equal(kel);
+    });
+  });
+});
+
+describe('Fahrenheit', function() {
+  describe('constructor', function() {
+    it ('debería aceptar un valor como parámetro,el tipo es fahrenheit siempre',function() {
+      var fah = new Fahrenheit(75.2);
+      expect(fah.valor+fah.tipo).to.equal('75.2F');
+    });
+  });
+
+  describe('#toCelsius', function() {
+    it ('debería devolver un objeto Celsius convertido',function() {
+      var fah = new Fahrenheit(75.2);
+      var cel = new Celsius(24);
+      expect(fah.toCelsius()).to.deep.equal(cel);
+    });
+  });
+
+  describe('#toFahrenheit', function() {
+    it ('debería devolver un objeto Fahrenheit, en este caso es a si mismo',function() {
+      var fah = new Fahrenheit(75.2);
+      expect(fah.toFahrenheit()).to.deep.equal(fah);
+    });
+  });
+
+  describe('#toKelvin', function() {
+    it ('debería devolver un objeto Kelvin convertido',function() {
+      var fah = new Fahrenheit(75.2);
+      var kel = new Kelvin(297.15);
+      expect(fah.toKelvin()).to.deep.equal(kel);
+    });
+  });
 });
