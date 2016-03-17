@@ -6,7 +6,7 @@ var arrayResults = []
 
 
 
-function crearArray(valor) {
+exports.crearArray = function(valor) {
     if(valor) {
         var matched = valor.match(/(.*)to(.*)/);
         var array = [];
