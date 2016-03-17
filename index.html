@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--[if IE]><link rel="shortcut icon" href="./img/favicon.png"><![endif]-->
         <link rel="icon" href="./img/favicon.png">
+
         <link rel="stylesheet" href="./css/normalize.css" type="text/css" />
         <link rel="stylesheet" href="./css/main.css" type="text/css" />
         <link rel="stylesheet" href="./tests/mocha.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
+        <script src="./tests/chai.js"></script>
+        <script src="./tests/mocha.js"></script>
+        <script src="./tests/blanket.min.js" data-cover-adapter="./tests/mocha-blanket.js"></script>
         <script type="text/javascript" src="./js/xregexp.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
         <script type="text/javascript" src="./js/medida.js"></script>
       	<script type="text/javascript" src="./js/temperature.js"></script>
-
-
-        <script src="./tests/chai.js"></script>
-        <script src="./tests/mocha.js"></script>
 
         <title>
             Conversor Temperatura
@@ -131,9 +131,12 @@
         </article>
         <article class="conversorDeTemperaturaTest">
         <div id="mocha"></div>
+        <div id="messages"></div>
+        <div id="fixtures"></div>
         <script>mocha.setup('bdd');</script>
         <script src="./tests/tests.js"></script>
         <script>
+            mocha.globals(['jQuery']);
             mocha.run();
         </script>
         </article>
