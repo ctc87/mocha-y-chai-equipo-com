@@ -136,3 +136,35 @@ describe('Fahrenheit', function() {
     });
   });
 });
+
+describe('Kelvin', function() {
+  describe('constructor', function() {
+    it ('debería aceptar un valor como parámetro,el tipo es fahrenheit siempre',function() {
+      var kel = new Kelvin(297.15);
+      expect(kel.valor+kel.tipo).to.equal('297.15K');
+    });
+  });
+
+  describe('#toCelsius', function() {
+    it ('debería devolver un objeto Celsius convertido',function() {
+      var kel = new Kelvin(297.15);
+      var cel = new Celsius(24);
+      expect(kel.toCelsius()).to.deep.equal(cel);
+    });
+  });
+
+  describe('#toFahrenheit', function() {
+    it ('debería devolver un objeto Fahrenheit convertido',function() {
+      var kel = new Kelvin(297.15);
+      var fah = new Fahrenheit(75.19999999999999);
+      expect(kel.toFahrenheit()).to.deep.equal(fah);
+    });
+  });
+
+  describe('#toKelvin', function() {
+    it ('debería devolver un objeto Kelvin , en este caso es a si mismo',function() {
+      var kel = new Kelvin(297.15);
+      expect(kel.toKelvin()).to.deep.equal(kel);
+    });
+  });
+});
